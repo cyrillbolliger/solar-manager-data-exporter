@@ -1,0 +1,5 @@
+public
+storage/.htaccess
+config.php
+cli
+alert.sh

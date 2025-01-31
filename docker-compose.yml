@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./dev/Dockerfile
+    ports:
+      - '8000:80'
+    volumes:
+      - .:/var/www/html
+      - ./dev/php.ini:/usr/local/etc/php/php.ini
+      - ./dev/apache-vhost.conf:/etc/apache2/sites-available/custom-vhost.conf
+      - ./dev/.htpasswd:/etc/apache2/.htpasswd
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

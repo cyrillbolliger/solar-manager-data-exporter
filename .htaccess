@@ -1,0 +1,10 @@
+AuthUserFile .htpasswd
+AuthType Basic
+AuthName "Please authenticate"
+Require valid-user
+
+# force redirect to https (except for localhost)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
