@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const VERSION = '1.0.0';
+const VERSION = '1.0.1';
 
 require_once dirname(__DIR__) . '/config.php';
 
