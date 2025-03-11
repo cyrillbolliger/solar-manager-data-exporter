@@ -379,7 +379,8 @@ function showHelp(?DateTimeInterface $latestEntry): void
     $currentMonth = ['from' => date('Y-m-d\T00:00:00T', strtotime('first day of this month'))];
     $currentMonthQueryParams = asQueryParams($currentMonth);
     $currentMonthCliParams = asCliParams($currentMonth);
-    $lastQuarterNum = (int)ceil(((((int)date('n')) + 9) % 12) / 3);
+    $currentQuarterNum = (int)ceil((int)date('n') / 3);
+    $lastQuarterNum = $currentQuarterNum + 3 % 4;
     $lastQuarterYear = $lastQuarterNum === 4 ? ((int)date('Y')) - 1 : (int)date('Y');
     $lastQuarter = [
         'from' => date('Y-m-d\T00:00:00T', strtotime($lastQuarterYear . '-' . (($lastQuarterNum * 3) - 2) . '-1')),
